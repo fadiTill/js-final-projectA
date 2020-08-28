@@ -1,3 +1,3 @@
 class Guests < ApplicationRecord
-    belongs_to :houses
+    belongs_to :house
 end 
