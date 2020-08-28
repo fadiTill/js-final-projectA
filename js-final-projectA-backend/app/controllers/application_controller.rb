@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
-end
+# end
 # class ApplicationController < ActionController::API
 #     def test
 #       render json: { test: "success" }
 #     end
-#   end
+   end

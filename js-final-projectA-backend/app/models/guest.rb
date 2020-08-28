@@ -1,3 +1,3 @@
-class Guests < ApplicationRecord
+class Guest < ApplicationRecord
     belongs_to :house
 end 

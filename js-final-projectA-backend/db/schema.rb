@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_170810) do
   create_table "guests", force: :cascade do |t|
     t.string "name"
     t.string "phone_number"
-    t.string "adress"
+    t.string "address"
     t.string "email"
     t.string "time_line"
     t.text "comment"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_170810) do
   end
 
   create_table "houses", force: :cascade do |t|
-    t.string "adress"
+    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
