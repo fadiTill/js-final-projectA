@@ -10,7 +10,7 @@
 //  const GUESTS_URL =`${BASE_URL}/guests`
 
 
-document.addEventListener("DOMcontentLoaded",(e) => {
+document.addEventListener("DOMcontentLoaded",() => {
      console.log("hello")
 //     // getHouses()
  });
