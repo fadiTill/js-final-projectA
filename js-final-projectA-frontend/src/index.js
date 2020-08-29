@@ -5,26 +5,26 @@
 //   .then(response => response.json())
 //   .then(parsedResponse => console.log(parsedResponse));
 
-// const BASE_URL ="http://localhost:3000"
-// const HOUSES_URL =`${BASE_URL}/houses`
-//  const GUESTS_URL =`${BASE_URL}/guests`
+const BASE_URL ="http://localhost:3000"
+const HOUSES_URL =`${BASE_URL}/houses`
+ const GUESTS_URL =`${BASE_URL}/guests`
 
 
-document.addEventListener("DOMcontentLoaded",() => {
-     console.log("hello")
-//     // getHouses()
- });
+document.addEventListener("DOMContentLoaded",() => {
+     // console.log("hello")
+ getHouses()
+  });
 
 
 // const main = () => {
 // return document.querySelector('main')
 // }
 
-//   const getHouses = () => {
-//  fetch('http://localhost:3000/houses')
-//  .then(response => response.json())
-//  .then(houses => console.log(houses))
-// }
+  const getHouses = () => {
+ fetch('http://localhost:3000/houses')
+ .then(response => response.json())
+ .then(data => console.log(data))
+}
 
 // const renderHouses = (housesData) => {
 //     housesData.forEach(house => renderHouseCard(house))
