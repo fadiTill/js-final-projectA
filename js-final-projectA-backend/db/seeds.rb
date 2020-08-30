@@ -15,25 +15,27 @@ Guest.delete_all
 
 houses_address = [
     '1 test address',
+    '2 test address',
     '3 test address',
     '4 test address',
     '5 test address',
-    '6 test address',
-    '7 test address',
-    '8 test address'
+    
+
+    
 ]
+
 
 
 houses_collection = []
 
 houses_address.each do |address|
-    houses_collection << House.create(address: address)
+    houses_collection << House.create(address: address, avatar: avatar)
 
 end
 
 
 houses_collection.each do | house|
-    list_size = ( SecureRandom.random_number(7)+ 1).floor
+    list_size = ( SecureRandom.random_number(4)+ 1).floor
 
 
     (1...list_size).each do |guest|

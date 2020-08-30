@@ -11,7 +11,7 @@ class GuestsController < ApplicationController
         end 
 
         def create 
-            house = House.find_by_id(params[:trainer_id])
+            house = House.find_by_id(params[:house_id])
             guest = house.guests.build(guest_params)
             # guest = house.guests.build(params)
             if guest.save
@@ -41,7 +41,7 @@ class GuestsController < ApplicationController
 
     #   t.timestamps
 def guest_params
-         params.require(:guest).permit(:name, :phone_number, :address, :email, :time_line, :comment)
+         params.require(:guest).permit(:name, :phone_number, :address, :email, :time_line, :comment,)
 end 
 end 
 
