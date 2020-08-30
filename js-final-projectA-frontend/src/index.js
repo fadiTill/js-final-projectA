@@ -12,19 +12,38 @@ const HOUSES_URL =`${BASE_URL}/houses`
 
 document.addEventListener("DOMContentLoaded",() => {
      // console.log("hello")
- getHouses()
-  });
+  getHouses()
+   });
 
 
 // const main = () => {
 // return document.querySelector('main')
 // }
 
-  const getHouses = () => {
+   const getHouses = () => {
  fetch('http://localhost:3000/houses')
  .then(response => response.json())
- .then(data => console.log(data))
-}
+ .then(houses => {
+     
+     let housesHTML = houses.map(function(houses){  
+          return`
+<div class="card">
+
+<div class="container">
+
+<p>${houses.address}</p>
+</div>
+</div>
+      `   
+
+     
+
+     })
+     
+     document.querySelector("#house-collection").innerHTML+= housesHTML 
+})
+   }
+
 
 // const renderHouses = (housesData) => {
 //     housesData.forEach(house => renderHouseCard(house))
