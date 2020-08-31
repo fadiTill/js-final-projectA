@@ -28,9 +28,10 @@ document.addEventListener("DOMContentLoaded",() => {
      let housesHTML = houses.map(function(houses){  
           return`
 <div class="card">
-
+<img src="img_avatar.png"
+alt= "Avatar" style="width:100%>"
 <div class="container">
-
+<h4><b>${houses.id}</b></h4>
 <p>${houses.address}</p>
 </div>
 </div>
