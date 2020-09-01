@@ -4,7 +4,7 @@
     text-align: center;
     background: #1abc9c;
     color: white;
-    font-size: 60px;
+    font-size: 10px;
 
 }
 
@@ -13,11 +13,14 @@
 
   div.card {
     background-color: #00bbff;
+    float: left;
+    margin: 1px;
     height: 250px;
-    width: 300px;
+    /* width: 300px; */
     box-shadow: 10px 10px  grey;
     padding: 10px;
     border-radius: 10px;
+    width: calc( 100% / 5 - 10px);
 
 }  
 
@@ -43,16 +46,4 @@
      }
 
 
-      /* div.card {
-        background-color: #00bbff;
-        height: 25%;
-        width: 33.33%;
-        box-shadow: 10px 10px  grey;
-        padding: 10px;
-        border-radius: 10px;
-    
-    }  
-     */ 
-    
-    
- 
+      
