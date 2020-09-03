@@ -5,20 +5,18 @@
 //   .then(response => response.json())
 //   .then(parsedResponse => console.log(parsedResponse));
 
-const BASE_URL ="http://localhost:3000"
-const HOUSES_URL =`${BASE_URL}/houses`
- const GUESTS_URL =`${BASE_URL}/guests`
+// const BASE_URL ="http://localhost:3000"
+// const HOUSES_URL =`${BASE_URL}/houses`
+//  const GUESTS_URL =`${BASE_URL}/guests`
 
 
 document.addEventListener("DOMContentLoaded",() => {
-     // console.log("hello")
+    
   getHouses()
    });
 
 
-// const main = () => {
-// return document.querySelector('main')
-// }
+
 
    const getHouses = () => {
  fetch('http://localhost:3000/houses')
@@ -31,6 +29,7 @@ document.addEventListener("DOMContentLoaded",() => {
 <div class="container">
 <p hidden>>${houses.id}</p>
 <button id="house-address"> ${houses.address}</button>
+ <ul> id="guest-list"</ul> 
 </div>
 </div>
       `   
@@ -39,36 +38,29 @@ document.addEventListener("DOMContentLoaded",() => {
 
      })
      
-     document.querySelector("#house-collection").innerHTML+= housesHTML 
-})
-   }
+      document.querySelector("#house-collection").innerHTML+= housesHTML 
+ })
+};
 
+    const getGuests = 
+     fetch('http://localhost:3000/guests')
+     .then(response => response.json())
+     .then(data => 
+     // .then(data => console.log(data))
+  {
+     
+     let guestsHTML = data.map(function(guests){  
+          return`
+ <div class="card">
+<div class="container">
+<p >${guests.house_id}</p>
+<p hidden>${guests.id}</p>
+<button id="house-address"> ${guests.name}</button>
+</div>
+</div>
 
-// const renderHouses = (housesData) => {
-//     housesData.forEach(house => renderHouseCard(house))
-// }
-
-
-// const renderHouseCard = (houseObj) => {
-//     let houseCard = document.createElement('div')
-//     houseCard.className = "card"
-//     houseCard.dataset.id = houseObj.id
-//     houseCard.innerHTML = `
-//     <p>$(houseObj.adress)<p>
-//     <button data-house-id =${houseObj.id}.id>add Guest</button>
-// `
-
-//     houseCard.lastElementChild.addEventListener('click', handleAddGuest)
-//     main().appendchild(houseCard)
-//     let guestList = document.create('ul')
-//     houseCard.appendChild(guestsList)
-//     houseObj.guests.forEach(guest =>
-//         renderGuest(guest, guestList)
-//         )
-//     }
-    
-    
-
-    
-
- 
+`
+ });
+         
+ document.querySelector("#guest-collection").innerHTML+= guestsHTML 
+}) 
