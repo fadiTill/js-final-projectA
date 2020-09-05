@@ -1,8 +1,29 @@
 class GuestsController < ApplicationController
 
+    # def index
+    #     sightings = Sighting.all
+    #     render json: SightingSerializer.new(sightings)
+    #   end
+
+
+
+     # def show
+    #     sighting = Sighting.find_by(id: params[:id])
+    #     options = {
+    #       include: [:bird, :location]
+    #     }
+    #     render json: SightingSerializer.new(sighting, options)
+    #   end
+
+
     def index
         guests = Guest.all
-        render json: guests, include: [:house]
+        # render json: guests, include: [:house]
+
+        options = {
+           include: [:house]
+        }
+        render json: GuestSerializer.new(guests, options)
     end
 
     # class SightingsController < ApplicationController
@@ -15,18 +36,27 @@ class GuestsController < ApplicationController
 
         def show 
             guest = Guest.find_by(id: params[:id])
+            options = {
+                include: [:house]
+             }
             # render json: guests, include: [house]
-            render json: GuestSerializer.new(guest)
+            render json: GuestSerializer.new(guest, options)
         end 
 
         def create 
             house = House.find_by_id(params[:house_id])
-            guest = house.guests.build(guest_params)
-            # guest = house.guests.build(params)
+            options = {
+                include: [:house]
+             }
+            # render json: guests, include: [house]
+            render json: GuestSerializer.new(guest, options)
+            
+           
             if guest.save
-                 render json :guest
+                #  render json :guest
             else
-                 render json :guest, status: 500
+                #  render json :guest, status: 500
+                render json: GuestSerializer.new(guest, options),  status: 500
                  
          end
 
