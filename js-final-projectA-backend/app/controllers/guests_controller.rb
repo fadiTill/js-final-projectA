@@ -45,18 +45,16 @@ class GuestsController < ApplicationController
 
         def create 
             house = House.find_by_id(params[:house_id])
-            options = {
-                include: [:house]
-             }
-            # render json: guests, include: [house]
-            render json: GuestSerializer.new(guest, options)
+            guest = house.guests.build(guest_params)
+            # guest = house.guests.build(params)
             
-           
+            # render json: guests, include: [house]
+            render json: GuestSerializer.new(guest)
             if guest.save
                 #  render json :guest
             else
                 #  render json :guest, status: 500
-                render json: GuestSerializer.new(guest, options),  status: 500
+                render json: GuestSerializer.new(guest),  status: 500
                  
          end
 
