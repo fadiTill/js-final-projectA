@@ -5,9 +5,18 @@ class GuestsController < ApplicationController
         render json: guests, include: [:house]
     end
 
+    # class SightingsController < ApplicationController
+    #     def show
+    #       sighting = Sighting.find(params[:id])
+    #       render json: SightingSerializer.new(sighting)
+    #     end
+    #   end
+
+
         def show 
             guest = Guest.find_by(id: params[:id])
-            render json: guests, include: [house]
+            # render json: guests, include: [house]
+            render json: GuestSerializer.new(guest)
         end 
 
         def create 
@@ -41,7 +50,7 @@ class GuestsController < ApplicationController
 
     #   t.timestamps
 def guest_params
-         params.require(:guest).permit(:name, :phone_number, :address, :email, :time_line, :comment,)
+         params.require(:guest).permit(:name, :phone_number, :address, :email, :time_line, :comment, house_id)
 end 
 end 
 

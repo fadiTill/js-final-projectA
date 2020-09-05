@@ -20,8 +20,6 @@ houses_address = [
     '4 test address',
     '5 test address',
     
-
-    
 ]
 
 
