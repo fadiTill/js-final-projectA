@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded",() => {
        const getGuests = () => {
         fetch('http://localhost:3000/guests')
         .then(response => response.json())
-        .then((guests) => {
+        .then((guest) => {
     
    //   {
    
@@ -63,22 +63,20 @@ document.addEventListener("DOMContentLoaded",() => {
         // t.string "address"
         // t.string "email"
         
-        let guestsHTML = [guests].map(function() {  
+        let guestsHTML = [guest].map(function() {  
              return`
     <div class="card">
    <div class="container">
-   <h2>${guests.attribute}</h2>
+   <h2>${guest.attribute}</h2>
    <ul>
    <li>
-   <p> ${guests.name}</p>
-   <p hidden>${guests.id}</p>
-   <p>${guests.phone_number}</p>
-   <p>${guests.address}</p>
-   <p> ${guests.email}</p>
-   <p>${guests.time_line}</p>
-   <p> ${guests.comment}</p>
+   <p> ${guest.name}</p>
+   <p hidden>${guest.id}</p>
+   <p>${guest.phone_number}</p>
+   <p>${guest.address}</p>
+   <p> ${guest.email}</p>
    </ul>
-   <button data-guest-id=${guests.id}>delete guest card</button>
+   <button data-guest-id=${guest.id}>delete guest card</button>
    </div>
    </div>
    `
@@ -200,32 +198,34 @@ guestFormContainer.addEventListener("create-house", function(e){
    })
     })
    
-//     .then(r => r.json()) 
-//    //  .then(newGuest => console.log(newGuests))
-//    .then(newGuest=> {
+    .then(r => r.json()) 
+   //  .then(newGuest => console.log(newGuests))
+   .then(newGuest=> {
    
-//      let newGuestHTML = `
-//      <div class="card">
-//      <div class="container">
-//      <h2>${guest.attribute}</h2>
-//      <ul>
-//      <li>
-//      <p> ${guest.name}</p>
-//      <p hidden>${guest.id}</p>
-//      <p>${guest.phone_number}</p>
-//      <p>${guest.address}</p>
-//      <p> ${guest.email}</p>
-//      </ul>
-//      <button data-guest-id=${guest.id}>delete guest card</button>
-//      </div>
-//      </div>
-//      `
-//      // document.querySelector("#toy-collection").innerHTML += newToy
-//      guestCollection.innerHTML += newGuestHTML
-//      console.log(e.target.reset())
+     let newGuestHTML = `
+     <div class="card">
+     <div class="container">
+     <h2>${guest.attribute}</h2>
+     <ul>
+     <li>
+     <p> ${guest.name}</p>
+     <p hidden>${guests.id}</p>
+     <p>${guests.phone_number}</p>
+     <p>${guests.address}</p>
+     <p> ${guests.email}</p>
+     <p>${guests.time_line}</p>
+     <p> ${guests.comment}</p>
+     </ul>
+     <button data-guest-id=${guests.id}>delete guest card</button>
+     </div>
+     </div>
+     `
+     // document.querySelector("#toy-collection").innerHTML += newToy
+     guestCollection.innerHTML += newGuestHTML
+     console.log(e.target.reset())
    
      
-//      })
+     })
    
    
-    })
+   })
