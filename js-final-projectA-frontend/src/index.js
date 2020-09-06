@@ -53,20 +53,22 @@ document.addEventListener("DOMContentLoaded",() => {
         
         let guestsHTML = guests.map(function(guest) {  
              return`
-    <div class="card">
-   <div class="container">
-   <h2>${guest.id}</h2>
-   <ul>
-   <li>
-   <p> ${guest.name}</p>
-   <p hidden>${guest.id}</p>
-   <p>${guest.phone_number}</p>
-   <p>${guest.address}</p>
-   <p> ${guest.email}</p>
-   </ul>
-   <button data-guest-id=${guests.id}>delete guest card</button>
-   </div>
-   </div>
+             <div class="card">
+             <div class="container">
+             <h2>${guest.house.address}</h2>
+             <ul>
+             <li>
+             <p> ${guest.name}</p>
+             <p hidden>${guest.id}</p>
+             <p>${guest.phone_number}</p>
+             <p>${guest.address}</p>
+             <p> ${guest.email}</p>
+             <p>${guest.time_line}</p>
+             <p> ${guest.comment}</p>
+             </ul>
+             <button data-guest-id=${guest.id}>delete guest card</button>
+             </div>
+             </div>
    `
     })
             
@@ -155,7 +157,7 @@ document.addEventListener("DOMContentLoaded",() => {
 
 //      return form
 // }
-guestFormContainer.addEventListener("create-house", function(e){
+guestFormContainer.addEventListener("create-guest", function(e){
      e.preventDefault()
      // console.log(e.target.name)
      const houseAddress = e.target.address.value
