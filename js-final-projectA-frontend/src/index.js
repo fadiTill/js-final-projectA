@@ -1,13 +1,4 @@
-//  console.log("testing...")
-// test that we can get data from the backend
-// const BACKEND_URL = 'localhost:3000';
-// fetch(`${BACKEND_URL}/test`)
-//   .then(response => response.json())
-//   .then(parsedResponse => console.log(parsedResponse));
 
-// const BASE_URL ="http://localhost:3000"
-// const HOUSES_URL =`${BASE_URL}/houses`
-//  const GUESTS_URL =`${BASE_URL}/guests`
 const guestFormContainer = document.querySelector(".container")
 
 document.addEventListener("DOMContentLoaded",() => {
@@ -53,21 +44,18 @@ document.addEventListener("DOMContentLoaded",() => {
        const getGuests = () => {
         fetch('http://localhost:3000/guests')
         .then(response => response.json())
-        .then((guest) => {
+        .then(guests => {
     
    //   {
    
    
-        // t.string "name"
-        // t.string "phone_number"
-        // t.string "address"
-        // t.string "email"
+       
         
-        let guestsHTML = [guest].map(function() {  
+        let guestsHTML = guests.map(function(guest) {  
              return`
     <div class="card">
    <div class="container">
-   <h2>${guest.attribute}</h2>
+   <h2>${guest.id}</h2>
    <ul>
    <li>
    <p> ${guest.name}</p>
@@ -76,7 +64,7 @@ document.addEventListener("DOMContentLoaded",() => {
    <p>${guest.address}</p>
    <p> ${guest.email}</p>
    </ul>
-   <button data-guest-id=${guest.id}>delete guest card</button>
+   <button data-guest-id=${guests.id}>delete guest card</button>
    </div>
    </div>
    `
@@ -208,7 +196,7 @@ guestFormContainer.addEventListener("create-house", function(e){
      <h2>${guest.attribute}</h2>
      <ul>
      <li>
-     <p> ${guest.name}</p>
+     <p> ${guests.name}</p>
      <p hidden>${guests.id}</p>
      <p>${guests.phone_number}</p>
      <p>${guests.address}</p>
