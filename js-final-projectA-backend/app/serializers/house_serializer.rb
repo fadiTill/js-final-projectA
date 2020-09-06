@@ -1,8 +1,8 @@
-class HouseSerializer
-  include FastJsonapi::ObjectSerializer
-  attributes :address
-  has_many :guests
-end
+# class HouseSerializer
+#   include FastJsonapi::ObjectSerializer
+#   attributes :address
+#   has_many :guests
+# end
 
 
 # create_table "houses", force: :cascade do |t|

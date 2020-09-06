@@ -1,8 +1,8 @@
-class GuestSerializer
-  include FastJsonapi::ObjectSerializer
-  attributes :name, :phone_number, :address, :email, :time_line, :comment, :house_id
-  belongs_to :house
-end
+# class GuestSerializer
+#   include FastJsonapi::ObjectSerializer
+#   attributes :name, :phone_number, :address, :email, :time_line, :comment, :house_id
+#   belongs_to :house
+# end
 
 # attributes :name, :species
 

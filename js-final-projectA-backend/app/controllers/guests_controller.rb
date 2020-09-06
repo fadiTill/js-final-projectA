@@ -17,13 +17,10 @@ class GuestsController < ApplicationController
 
 
     def index
-        @guests = Guest.all
-        # render json: guests, include: [:house]
+         guests = Guest.all
+         render json: guests, include: [:house]
 
-        options = {
-           include: [:house]
-        }
-        render json: GuestSerializer.new(@guests, options)
+        
     end
 
     # class SightingsController < ApplicationController
@@ -35,36 +32,33 @@ class GuestsController < ApplicationController
 
 
         def show 
-            @guest = Guest.find_by(id: params[:id])
-            options = {
-                include: [:houses]
-             }
+            guest = Guest.find_by(id: params[:id])
+            
             # render json: guests, include: [house]
-            render json: GuestSerializer.new(@guests, options)
+            
         end 
 
         def create 
-            @house = House.find_by_id(params[:house_id])
-            @guest = house.guests.build(guest_params)
+            house = House.find_by_id(params[:house_id])
+            guest = house.guests.build(guest_params)
             # guest = house.guests.build(params)
             
             # render json: guests, include: [house]
-            render json: GuestSerializer.new(@guest)
-            if @guest.save
-                #  render json :guest
+            
+            if guest.save
+                  render json :guest
             else
-                #  render json :guest, status: 500
-                render json: GuestSerializer.new(@guest),  status: 500
+                  render json :guest, status: 500
+                
                  
          end
 
 
          def destroy
 
-            @guest = find_by_id(id: params[:id]) 
-            @guest.destroy
-            # render json :guest
-            render json: GuestSerializer.new(@guest)
+            guest = find_by_id(id: params[:id]) 
+            guest.destroy
+            render json :guest
          end
 
          private 
