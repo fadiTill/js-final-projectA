@@ -11,42 +11,14 @@ document.addEventListener("DOMContentLoaded",() => {
    
    
    
-   //    const getGuests = () => {
-   //  fetch('http://localhost:3000/houses')
-   //  .then(response => response.json())
-   //  .then(houses => {
-        
-   //      let housesHTML = houses.map(function(houses){  
-   //           return`
-   // <div class="card">
-   // <div class="container">
-   // <p>${houses.id}</p>
-   // <button id="house-address"> ${houses.address}</button>
-   //  <ul> id="guest-list"</ul> 
-   // </div>
-   // </div>
-   //       `   
    
-        
-   
-   //      })
-        
-   //       document.querySelector("#house-collection").innerHTML+= housesHTML 
-   //  })
-   // };
-   
-   
-   //  const getGuests = 
-        // fetch('http://localhost:3000/guests')
-        // .then(response => response.json())
-        //  .then(data => console.log(data))
    
        const getGuests = () => {
         fetch('http://localhost:3000/guests')
         .then(response => response.json())
         .then(guests => {
     
-   //   {
+   
    
    
        
@@ -80,10 +52,10 @@ document.addEventListener("DOMContentLoaded",() => {
    
        // when click on create, the new form appear with input fielsd and submit button
    
-   //     const input = document.getElementById('create-guest');
-   //    input.addEventListener('click', function(event) {
-   //   alert('I was clicked!');
-   // });
+       const input = document.getElementById("create-guest");
+      input.addEventListener('click', function(event) {
+     alert('I was clicked!');
+   });
    
 //    let guests = []
    
@@ -157,65 +129,65 @@ document.addEventListener("DOMContentLoaded",() => {
 
 //      return form
 // }
-guestFormContainer.addEventListener("create-guest", function(e){
-     e.preventDefault()
-     // console.log(e.target.name)
-     const houseAddress = e.target.address.value
-     const guestName = e.target.name.value
-     const guestPhoneNumber = e.target.phone_number.value
-     const guestAddress = e.target.address.value
-     const guestEmail = e.target.email.value
-     const guestTimeLine = e.target.time_line.value
-     const guestComment = e.target.comment.value
-   // console.log(guestName, guestPhoneNumber)
+// guestContainer.addEventListener("create-guest", function(e){
+//      e.preventDefault()
+//       console.log("DONE")
+//      const houseAddress = e.target.address.value
+//      const guestName = e.target.name.value
+//      const guestPhoneNumber = e.target.phone_number.value
+//      const guestAddress = e.target.address.value
+//      const guestEmail = e.target.email.value
+//      const guestTimeLine = e.target.time_line.value
+//      const guestComment = e.target.comment.value
+//    // console.log(guestName, guestPhoneNumber)
    
-   fetch("http://localhost:3000/guests", {
+//    fetch("http://localhost:3000/guests", {
    
-   method:"POST",
-   headers: {
-     "Content-Type": "application/json",
-     "Accept": "application/json"
-      },
+//    method:"POST",
+//    headers: {
+//      "Content-Type": "application/json",
+//      "Accept": "application/json"
+//       },
    
-   body: JSON.stringify({
-     address: houseAddress, 
-     name: guestName,
-     phone_number: guestPhoneNumber,
-     email: guestEmail ,
-     adress: guestAddress,
-     time_line: guestTimeLine,
-     comment: guestComment
-   })
-    })
+//    body: JSON.stringify({
+//      address: houseAddress, 
+//      name: guestName,
+//      phone_number: guestPhoneNumber,
+//      email: guestEmail ,
+//      adress: guestAddress,
+//      time_line: guestTimeLine,
+//      comment: guestComment
+//    })
+//     })
    
-    .then(r => r.json()) 
-   //  .then(newGuest => console.log(newGuests))
-   .then(newGuest=> {
+//     .then(r => r.json()) 
+//    //  .then(newGuest => console.log(newGuests))
+//    .then(newGuest=> {
    
-     let newGuestHTML = `
-     <div class="card">
-     <div class="container">
-     <h2>${guest.attribute}</h2>
-     <ul>
-     <li>
-     <p> ${guests.name}</p>
-     <p hidden>${guests.id}</p>
-     <p>${guests.phone_number}</p>
-     <p>${guests.address}</p>
-     <p> ${guests.email}</p>
-     <p>${guests.time_line}</p>
-     <p> ${guests.comment}</p>
-     </ul>
-     <button data-guest-id=${guests.id}>delete guest card</button>
-     </div>
-     </div>
-     `
-     // document.querySelector("#toy-collection").innerHTML += newToy
-     guestCollection.innerHTML += newGuestHTML
-     console.log(e.target.reset())
+//      let newGuestHTML = `
+//      <div class="card">
+//      <div class="container">
+//      <h2>${guest.attribute}</h2>
+//      <ul>
+//      <li>
+//      <p> ${guest.name}</p>
+//      <p hidden>${guest.id}</p>
+//      <p>${guest.phone_number}</p>
+//      <p>${guest.address}</p>
+//      <p> ${guest.email}</p>
+//      <p>${guest.time_line}</p>
+//      <p> ${guest.comment}</p>
+//      </ul>
+//      <button data-guest-id=${guest.id}>delete guest card</button>
+//      </div>
+//      </div>
+//      `
+//      // document.querySelector("#toy-collection").innerHTML += newToy
+//      guestCollection.innerHTML += newGuestHTML
+//      console.log(e.target.reset())
    
      
-     })
+//      })
    
    
-   })
+//    })
