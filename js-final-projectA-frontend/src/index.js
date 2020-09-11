@@ -1,4 +1,5 @@
 
+
 const guestFormContainer = document.querySelector(".container")
 
 document.addEventListener("DOMContentLoaded",() => {
@@ -8,26 +9,19 @@ document.addEventListener("DOMContentLoaded",() => {
    
       });
    
-   
-   
-   
-   
-   
        const getGuests = () => {
         fetch('http://localhost:3000/guests')
         .then(response => response.json())
         .then(guests => {
     
    
-   
-   
-       
         
         let guestsHTML = guests.map(function(guest) {  
              return`
              <div  id="card" class="card">
              <div class="container">
-             <h2>${guest.house.address}</h2>
+             <p> ${guest.house_id}</p>
+             <h2> ${guest.house_id.address} </h2>
              <ul>
              <li>
              <p> ${guest.name}</p>
@@ -38,28 +32,49 @@ document.addEventListener("DOMContentLoaded",() => {
              <p>${guest.time_line}</p>
              <p> ${guest.comment}</p>
              </ul>
-             <button id="data-guest-id">delete</button>
              </div>
              </div>
    `
     })
             
-    document.querySelector("#guest-collection").innerHTML+= guestsHTML 
+    document.querySelector("#guest-collection").innerHTML+= guestsHTML.join('') 
    })
         
        };
 
+//  let guestarray = []
 
-       guestContainer.addEventListener("submit", function(e){
-        e.preventDefault()
-        console.log(e.target.address,)
-        const guestName = e.target.name.value
-        const houseAddress = e.target.address.value
-        const guestPhoneNumber = e.target.phone_number.value
-        const guestAddress = e.target.address.value
-        const guestEmail = e.target.email.value
-        const guestTimeLine = e.target.time_line.value
-        const guestComment = e.target.comment.value
+   const addGuest =    guestContainer.addEventListener("submit", function(e){
+        e.preventDefault();
+
+         const input = 
+         {
+           house_id: guestContainer.querySelector("#house_id").value,
+           address: guestContainer.querySelector("#house_address").value,
+           name:    guestContainer.querySelector("#name").value,
+           phone_number: guestContainer.querySelector("#phone_number").value,
+           address: guestContainer.querySelector("#address").value,
+           email: guestContainer.querySelector("#email").value,
+           time_line: guestContainer.querySelector("#time_line").value,
+           comment: guestContainer.querySelector("#comment").value
+           
+           
+         }    
+           console.log(input)
+            // guestarray.push(Object);
+        //  document.forms[0].reset()
+
+
+
+
+        // console.log(input.value)
+        // const guest.name = e.target.name.value;
+        // const houseAddress = e.target.address.value;
+        // const guestPhoneNumber = e.target.phone_number.value;
+        // const guestAddress = e.target.address.value;
+        // const guestEmail = e.target.email.value;
+        // const guestTimeLine = e.target.time_line.value;
+        // const guestComment = e.target.comment.value
        
        })
        fetch("http://localhost:3000/guests", {
@@ -72,12 +87,13 @@ document.addEventListener("DOMContentLoaded",() => {
           
 
           body: JSON.stringify({
-            name: name,
-            address: address,
-            phone_number:phone_number,
-            email: email,
-            time_line: time_line, 
-            comment:"new comment"
+            "house_id":house_id,
+            "name": name,
+            "address": address,
+            "phone_number": phone_number,
+            "email": email,
+            "time_line": time_line, 
+            "comment": comment
 
           })
           })
@@ -89,6 +105,7 @@ document.addEventListener("DOMContentLoaded",() => {
              <div  id="card" class="card">
              <div class="container">
              <h2>${newGuest.address}</h2>
+             <p hidden>${newGuest.house_id}</p>
              <ul>
              <li>
              <p> ${newGuest.name}</p>
@@ -99,14 +116,14 @@ document.addEventListener("DOMContentLoaded",() => {
              <p>${newGuest.time_line}</p>
              <p> ${newGuest.comment}</p>
              </ul>
-             <button id="data-guest-id">delete</button>
              </div>
              </div>
             `
-            
+            // guestarray.push(newGuestHTML);
             document.querySelector("#guest-collection").innerHTML += newGuestHTML
-            console.log(event.target.reset())
-          })         
+            //  console.log(event.target.reset())
+            //  document.forms[0].reset()
+           })         
 
 
 
@@ -358,4 +375,125 @@ document.addEventListener("DOMContentLoaded",() => {
 //  const removeGuest = (id) => {
 //   let cardToRemove = document.getElementById(`{guest.id)`)
 //   cardToRemove.parentElement.removeChild(cardToRemove)
-// }
+
+
+
+
+
+
+
+// const BASE_URL = "http://localhost:3000"
+// const HOUSES_URL = `${BASE_URL}/houses`
+// const GUESTS_URL = `${BASE_URL}/guests`
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     getHouses()
+//   })
+  
+//   const main = () => {
+//     return document.querySelector('main')
+//   }
+  
+//   const getHouses = () => {
+//     fetch('http://localhost:3000/houses')
+//     .then(r => r.json())
+//     .then(data => renderHouses(data))
+//   }
+  
+//   const renderHouses = (housesData) => {
+//     housesData.forEach(house => renderHouseCard(house))
+//   }
+  
+//   const renderHouseCard = (houseObj) => {
+//     let houseCard = document.createElement('div')
+//     houseCard.className = "card"
+//     houseCard.dataset.id = houseObj.id
+//     houseCard.innerHTML = `
+//       <p>${houseObj.address}</p>
+//       <button data-trainer-id=${houseObj.id}>Add Guest</button>
+//     `
+//     houseCard.lastElementChild.addEventListener('click', handleAddGuest)
+//     main().appendChild(houseCard)
+//     let guestsList = document.createElement('ul')
+//     houseCard.appendChild(guestsList)
+//     houseObj.guests.forEach(guest =>
+//       renderGuest(guest, guestsList)
+//     )
+//   }
+  
+//   const renderGuest = (guest, list, e) => {
+//     let guestCard = document.createElement('li')
+//     guestCard.id = `guest-${guest.id}`
+//     guestCard.innerText = `${guest.name}(${guest.phone_number})(${guest.house_id})`
+//     let releaseBtn = document.createElement('button')
+//     releaseBtn.className = "release"
+//     releaseBtn.dataset.guestId = guest.id
+//     releaseBtn.innerText = "Release"
+//     releaseBtn.addEventListener('click', handleReleaseGuest)
+//     guestCard.appendChild(releaseBtn)
+//     if(!list){
+//       list = e.target.parentElement.lastElementChild
+//     }
+//     list.appendChild(guestCard)
+//   }
+  
+//   const handleReleaseGuest = (e) => {
+//     fetch(GUESTS_URL+`/${e.target.dataset.guestId}`, {
+//       method: "DELETE"
+//     })
+//     .then(r => r.json())
+//     .then(guest => removeGuest(guest.id))
+//   }
+  
+//   const removeGuest = (id) => {
+//     let cardToRemove = document.getElementById(`guest-${id}`)
+//     cardToRemove.parentElement.removeChild(cardToRemove)
+//   }
+  
+//   const handleAddGuest = (e) => {
+//     console.log("adding guest...")
+//     let configObj = {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//         "Accept": "application/json"
+//       },
+//       body: JSON.stringify({
+//         house_id: e.target.dataset.houseId
+//       })
+//     }
+//     fetch(GUESTS_URL, configObj)
+//     .then(r => r.json())
+//     .then(data => addGuestToDom(data, e))
+//   }
+  
+//   // const addPokemonToDom = (data, e) => {
+//   //   if(data.message){
+//   //     alert(data.message)
+//   //   } else {
+//   //     renderPokemon(data, undefined, e)
+//   //   }
+//   // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
