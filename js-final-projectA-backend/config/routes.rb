@@ -4,6 +4,8 @@
 
 #   get '/test', to: 'application#test'
 
-resources :houses
-resources :guests
+resources :houses 
+resources :guests 
+
 end
+

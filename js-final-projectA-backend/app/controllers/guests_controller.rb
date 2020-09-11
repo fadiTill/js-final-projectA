@@ -1,81 +1,66 @@
 class GuestsController < ApplicationController
-
-    # def index
-    #     sightings = Sighting.all
-    #     render json: SightingSerializer.new(sightings)
-    #   end
-
-
-
-     # def show
-    #     sighting = Sighting.find_by(id: params[:id])
-    #     options = {
-    #       include: [:bird, :location]
-    #     }
-    #     render json: SightingSerializer.new(sighting, options)
-    #   end
+require 'pry'
+    
+     
+def index 
+    guests =    Guest.all
+    render json: guests, include: [:house]
+end
 
 
-    def index
-         guests = Guest.all
-         render json: guests, include: [:house]
+def show 
+    guest = Guest.find(params[:id])
+    render json: guest, include: [:house]
+end
 
-        
-    end
+# def create
+    # house = House.find(params[:house_id])
+    # guest = House.guests.create(params)
+    # house = House.find(params[:trainer_id])
+    # guest = guest.houses.build({params
+       
+    #     # name: Faker::Name.last_name,
+    #     # phone_number: Faker::PhoneNumber.phone_number,
+    #     # address: Faker::Address.street_address,
+    #     # email: Faker::Internet.email(name: 'test'),
+    #     # time_line: Faker::Date.forward(days: 31),
+    #     # comment: Faker::Marketing.buzzwords
 
-    # class SightingsController < ApplicationController
-    #     def show
-    #       sighting = Sighting.find(params[:id])
-    #       render json: SightingSerializer.new(sighting)
-    #     end
-    #   end
+    # })
+    
+    def create 
+        guest = Guest.new(guest_params)    
+    render json: guest.save ? guest : {message: 500}
 
-
-        def show 
-            guest = Guest.find_by(id: params[:id])
-            
-            # render json: guests, include: [house]
-            
-        end 
-
-        def create 
-            house = House.find_by_id(params[:house_id])
-            guest = house.guests.build(guest_params)
-            # guest = house.guests.build(params)
-            
-            # render json: guests, include: [house]
-            
-            if guest.save
-                  render json :guest
-            else
-                  render json :guest, status: 500
-                
-                 
-         end
+     end
+ 
 
 
-         def destroy
 
-            guest = find_by_id(id: params[:id]) 
-            guest.destroy
-            render json :guest
-         end
+def destroy
+    guest = Guest.find(params[:id])
+    guest.destroy
+end 
+# create_table "guests", force: :cascade do |t|
+#     t.string "name"
+#     t.string "phone_number"
+#     t.string "address"
+#     t.string "email"
+#     t.string "time_line"
+#     t.text "comment"
+#     t.bigint "house_id", null: false
+#     t.datetime "created_at", precision: 6, null: false
+#     t.datetime "updated_at", precision: 6, null: false
+#     t.index ["house_id"], name: "index_guests_on_house_id"
+#   end
 
-         private 
 
-    #      t.string :name
-    #   t.string :phone_number
-    #   t.string :address
-    #   t.string :email
-    #   t.string :time_line
-    #   t.text  :comment
-    #   t.references :house, null:false, foreign_key: true
 
-    #   t.timestamps
+
+
+private
+
 def guest_params
-         params.require(:guest).permit(:name, :phone_number, :address, :email, :time_line, :comment, house_id)
+    params.require(:guest).permit(:name, :phone_number, :address, :email, :time_line, :comment, :house_id)
 end 
-end 
-
-
 end

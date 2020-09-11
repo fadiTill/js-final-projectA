@@ -27,7 +27,7 @@ houses_address = [
 houses_collection = []
 
 houses_address.each do |address|
-    houses_collection << House.create(address: address, avatar: avatar)
+    houses_collection << House.create(address: address)
 
 end
 

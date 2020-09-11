@@ -1,12 +1,22 @@
-# class HouseSerializer
-#   include FastJsonapi::ObjectSerializer
-#   attributes :address
-#   has_many :guests
-# end
+class HouseSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :address, :guests
+  has_many :guests
+
+#   def guests 
+#     self.object.guests.map do |guest|
+#         {
+           
+#             name: guest.name,
+#             address: guest.address,
+#             phone_number: guest.phone_number,
+#             email: guest.email,
+#             time_line: guest.time_line, 
+#             comment: guest.comment
+
+#         }
+    end
+   end 
+end 
 
 
-# create_table "houses", force: :cascade do |t|
-#   t.string "address"
-#   t.datetime "created_at", precision: 6, null: false
-#   t.datetime "updated_at", precision: 6, null: false
-# end
