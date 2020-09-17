@@ -16,12 +16,12 @@ And then execute:
 
 $ bundle install
 
-cd into Js-final project backend and run rails s
+cd into js-final-projectA-backend   and run rails s
 got to  'http://localhost:3000/houses'
 
-        'http://localhost:3000/houses'
+        'http://localhost:3000/guests'
 
-cd into js-final-Project Frontend 
+cd into js-final-projectA-frontend
  run the command form your console 
 
  open html.index
