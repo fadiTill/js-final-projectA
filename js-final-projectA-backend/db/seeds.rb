@@ -33,10 +33,10 @@ end
 
 
 houses_collection.each do | house|
-    list_size = ( SecureRandom.random_number(4)+ 1).floor
+    list_size = ( SecureRandom.random_number(5)+ 1).floor
 
 
-    (1...list_size).each do |guest|
+    (1...5).each do |guest|
 name = Faker::Name.last_name
 phone_number = Faker::PhoneNumber.phone_number
 address = Faker::Address.street_address
