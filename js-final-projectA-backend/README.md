@@ -1,24 +1,47 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+Js-final-project 
 
-* Configuration
+Welcome to your new API ! In this directory,  To experiment with that code, run rails s and open index.html for an interactive prompt.
 
-* Database creation
+Installation
 
-* Database initialization
+fork and clone this API
+js-final-projectA/js-final-ProjectB
 
-* How to run the test suite
+And then execute:
 
-* Services (job queues, cache servers, search engines, etc.)
+$ bundle install
 
-* Deployment instructions
+cd into Js-final project backend and run rails s
+got to  'http://localhost:3000/houses'
 
-* ...
+        'http://localhost:3000/houses'
+
+cd into js-final-Project Frontend 
+ run the command form your console 
+
+ open html.index
+
+
+  "This MVC will help you Signup as user and save guests data for virtual open houses."
+  1) first You can create new open house address
+  2) then you can create a guests, Read the information.
+
+
+
+
+Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/'. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+
+License
+
+The API is available as open source under the terms of the MIT License.
+
+Code of Conduct
+
+Everyone interacting in the Sinatra finalproject’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
