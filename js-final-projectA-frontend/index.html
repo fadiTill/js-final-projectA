@@ -5,7 +5,26 @@
     <div class="header">
       <h1><Header</h1>
       <p>Open House</p>
-     
+      <div id ="houseContainer"class="container">
+        <form class="add-house-form">
+          <input
+          type="text"
+          name="house_address"
+          id="house_address"
+          value=""
+          placeholder=" house address"
+          class="input-text"
+          />
+          <br />
+          <input
+          type="submit"
+          name="submit"
+          id="create-house"
+          value="Create New House"
+          class="submit"
+        />
+        </form>
+      </div>
       <div id ="guestContainer"class="container">
         <form class="add-guest-form">
      <input
@@ -62,14 +81,8 @@
       class="input-text"
       />
       <br />
-      <input
-      type="text"
-      name="house_id"
-      id ="house_id"
-      value=""
-      placeholder=" house id"
-      class="input-text"
-    />
+      <select id="house_id" name="house_id"> 
+      </select>
     <br />
     <input
           type="submit"
@@ -83,7 +96,8 @@
 
 
     </div>
-    <div id="house-collection"></div>
+    <div id="house-collection"class="collection"></div>
+    
     <div id="guest-collection"></div>
     <div id="new-guest-card"></div>
    
@@ -92,7 +106,16 @@
   
   </head>
   <body>
-
-   <script type="application/javascript" src="src/testc.js" charset="UTF-8"></script>
+    
+    <script type="application/javascript" src="src/components/house.js" charset="UTF-8"></script>
+    <script type="application/javascript" src="src/components/houses.js"charset="UTF-8"></script>
+  <script type="application/javascript" src="src/components/app.js" charset="UTF-8"></script>
+  <script type="application/javascript" src="src/adapters/HousesAdapter.js" charset="UTF-8"></script>
+  <script type="application/javascript" src="src/indexb.js" charset="UTF-8"></script>
+  <script type="application/javascript" src="src/components/guest.js" charset="UTF-8"></script>
+  <script type="application/javascript" src="src/components/guests.js"charset="UTF-8"></script>
+<script type="application/javascript" src="src/components/appg.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/adapters/GuestsAdapter.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/indexc.js" charset="UTF-8"></script>
   </body>
 </html>
