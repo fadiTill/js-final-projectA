@@ -12,10 +12,10 @@ class Houses {
         this.houseID = document.getElementById("house_id")
         this.newHouseAddress = document.getElementById("house_address")
         this.addHouse =  document.getElementById("houseContainer")
-        this.card = document.getElementById("card")
+         this.card = document.getElementById("card")
         this.addHouse.addEventListener("submit", this.createHouse.bind(this))
-        // {
-            // e.preventDefault();
+        
+            
     }
 
 createHouse(e){
@@ -24,14 +24,16 @@ createHouse(e){
     // console.log(this.newHouseAddress.value)
     const inputb = this.newHouseAddress.value
     
+//1 homework render new house in Select without refreshing the  page.
+    // this.adapter.createHouse(inputb)
+     this.adapter.createHouse(inputb).then(house => {
+        //  console.log(house)
+    this.houses.push(new House(house))
+     this.newHouseAddress.value =''
+ this.render()
 
-    this.adapter.createHouse(inputb)
-    // this.adapter.createHouse(inputb).then(house => {
-    //     console.log(house)
-//     this.houses.push(new House(house))
-// this.render()
-// this.newHouseAddress.value =''
- }
+ })
+}
 
 
 fetchAndLoadHouses() {
@@ -40,7 +42,7 @@ this.adapter
 .then(houses => {
     //  console.log(this)
       houses.forEach(house => this.houses.push(new House(house)))
-    //   console.log(houses)
+       console.log(this.houses)
     
 })
 
@@ -58,8 +60,12 @@ render() {
     //  houseContainer.innerHTML +='my new house here'
    
     
-    this.houseID.innerHTML+=this.houses.map(house => `<option value=${house.id}>${house.address}</option>`).join('')
+     this.houseID.innerHTML+=this.houses.map(house => `<option value=${house.id}>${house.address} (${house.id})</option>`
+     ).join('')
     
+     // this..innerHTML+=this.houses.map(house => house.renderOption())
     // )}
+
+    
 }
 }

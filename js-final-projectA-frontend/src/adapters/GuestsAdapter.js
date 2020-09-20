@@ -4,7 +4,7 @@ class GuestsAdapter {
     'http://localhost:3000/guests'
 }
 
-getGuests() {
+ getGuests() {
 return fetch(this.baseUrl).then(response => response.json()
 )
 }
@@ -12,23 +12,24 @@ return fetch(this.baseUrl).then(response => response.json()
 createGuest(inputB,inputC,inputD,inputE,inputF,inputG,inputH){
     const guest = {
         name: inputB,
-        address: inputC,
-        phone_number: inputD,
+        phone_number: inputC,
+        address: inputD,
         email: inputE,
         time_line: inputF,
         comment: inputG,
-        house_id: inputH
+        house_id: inputH,
 
     }
     return fetch(this.baseUrl, {
         method: 'Post', 
         headers: {
             "Content-Type": "application/json",
-            // "Accept": "application/json"
+              "Accept": "application/json"
           },
         body: JSON.stringify({guest}),
+        }).then(res => res.json())
         
-// }).then(res => res.json())
-        })
+ 
+        // })
 }
 }

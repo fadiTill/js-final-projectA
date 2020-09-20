@@ -15,12 +15,12 @@ createHouse(inputb){
     }
     return fetch(this.baseUrl, {
         method: 'Post', 
-        headers: {
-            "Content-Type": "application/json",
-            // "Accept": "application/json"
-          },
+         headers: {
+             "Content-Type": "application/json",
+        
+            },
         body: JSON.stringify({house}),
-    })
-// }).then(res => res.json())
+    }).then(response => response.json())
+
 }
 }

@@ -48,25 +48,30 @@ createGuest(e) {
 
 
 
-    // input(
-
-
-    // this.guestName.value,
-    // this.guestPhone_number.value,
-    // this.guestAddress.value,
-    // this.guestEmail.value,
-    // this.guestTime_line.value,
-    // this.guesthouseIDD.value )
+        // createHouse(e){
+        //     e.preventDefault();
+        //     const inputb = this.newHouseAddress.value
+            
+        // //1 homework render new house in Select without refreshing the  page.
+        //      this.adapter.createHouse(inputb).then(house => {
+        //     this.houses.push(new House(house))
+        //      this.newHouseAddress.value =''
+        //  this.render()
+        
+        //  })
+        // }
+        
     
 
     // this.adapter.createGuest(input)
       this.adapter.createGuest(inputB,inputC,inputD,inputE,inputF,inputG,inputH).then(guest => {
-   console.log(guest)
-//     this.guests.push(new Guest(guest))
-//  this.renderg()
-// // this.newHouseAddress.value =''
-  }
-      )}
+    // console.log(guest)
+    this.guests.push(new Guest(guest))
+//  this.newguestAddress.value =''
+  this.renderg()
+
+  })
+      }
 
  fetchAndLoadGuests() {
 this.adapter
@@ -74,7 +79,7 @@ this.adapter
 .then(guests => {
     //  console.log(this)
       guests.forEach(guest => this.guests.push(new Guest(guest)))
-    //   console.log(houses)
+       console.log(this.guests)
     
 })
 
@@ -99,25 +104,36 @@ renderg() {
     this.guestCollection.innerHTML+=this.guests.map(guest =>  
 
         `
-    <div  id="card" class="card">
-    <div class="container">
-    <p hidden>${guest.house_id}</p>
-    <h2>${guest.house.address}</h2>
-    <ul>
-    <p> ${guest.name}</p>
-    <p hidden>${guest.id}</p>
-    <p>${guest.phone_number}</p>
-    <p>${guest.address}</p>
-    <p> ${guest.email}</p>
-    <p>${guest.time_line}</p>
-    <p> ${guest.comment}</p>
-    </ul>
-    </div>
-    </div>
+        <div  id="card" class="card">
+        <div class="container">
+        <p >${guest.house_id}</p>
+        <ul>
+        <p> ${guest.name}</p>
+        <p hidden>${guest.id}</p>
+        <p>${guest.phone_number}</p>
+        <p>${guest.address}</p>
+        <p> ${guest.email}</p>
+        <p>${guest.time_line}</p>
+        <p> ${guest.comment}</p>
+        </ul>
+        </div>
+        </div>
 `
-
+    )
+ .join('')
    
-    )}
+    
+}
      
     
 }
+
+//change background color to black when push button 
+
+var button = document.querySelector("#colorchange");
+console.log("button clicked")
+
+button.addEventListener("click",function(){
+	document.body.style.backgroundColor = "black";
+	
+})
